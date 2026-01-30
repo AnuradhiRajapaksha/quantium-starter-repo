@@ -10,6 +10,7 @@ df= pd.read_csv(data_path)
 #ensure correct type
 df["date"]=pd.to_datetime(df["date"])
 df["sales"]=pd.to_numeric(df["sales"],errors="coerce")
+df["region"]=df["region"].astype(str).str.strip().str.lower()
 
 #aggregate to total sales per day (acress regions)
 daily_sales=(
